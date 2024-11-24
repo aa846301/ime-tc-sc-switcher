@@ -4,6 +4,26 @@
 regPath := "SOFTWARE\Microsoft\IME\15.0\IMETC"
 valueName := "Enable Simplified Chinese Output"
 
+; 開關通知功能
+IsOpenTrayTip := true
+
+; 首次開啟時跳出說明視窗
+
+MsgBox("
+(
+使用說明:
+快捷鍵:Ctrl+Shift+F
+開關通知:Ctrl+Shift+Alt+X
+注意!若切換後無效果，請手動切換其他輸入法再切回中文輸入法
+)","ime-tc-sc-switcher")
+
+^+!x::
+{
+	global IsOpenTrayTip  ; 使用 global 關鍵字來引用全域變數
+	IsOpenTrayTip := !IsOpenTrayTip
+	TrayTip("通知開關", "通知已切換")
+}
+
 ; 定義快捷鍵 Ctrl+Shift+F
 ^+f::
 {
@@ -16,15 +36,19 @@ valueName := "Enable Simplified Chinese Output"
         if (currentValue = "0x00000001")
         {
             RegWrite("0x00000000", "REG_SZ", "HKCU\" regPath, valueName)
-            ; MsgBox("已切換至繁體輸出模式")
-			TrayTip("輸入法切換", "已切換至繁體輸出模式")
+            if (IsOpenTrayTip)
+			{
+				TrayTip("輸入法切換", "已切換至繁體輸出模式")
+			}
         }
         ; 如果目前是繁體("0")，切換到簡體("1")
         else if (currentValue = "0x00000000")
         {
             RegWrite("0x00000001", "REG_SZ", "HKCU\" regPath, valueName)
-            ; MsgBox("已切換至簡體輸出模式")
-			TrayTip("輸入法切換", "已切換至簡體輸出模式")
+			if (IsOpenTrayTip)
+			{
+				TrayTip("輸入法切換", "已切換至簡體輸出模式")
+			}
         }
     }
     catch as err
