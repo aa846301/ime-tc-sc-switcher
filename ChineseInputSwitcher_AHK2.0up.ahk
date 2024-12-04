@@ -12,8 +12,8 @@ IsOpenTrayTip := true
 MsgBox("
 (
 使用說明:
-快捷鍵:Ctrl+Shift+F
-開關通知:Ctrl+Shift+Alt+X
+快捷鍵: Shift+Alt+F
+開關通知: Ctrl+Shift+Alt+X
 注意!若切換後無效果，請手動切換其他輸入法再切回中文輸入法
 )","ime-tc-sc-switcher")
 
@@ -21,10 +21,12 @@ MsgBox("
 {
 	global IsOpenTrayTip  ; 使用 global 關鍵字來引用全域變數
 	IsOpenTrayTip := !IsOpenTrayTip
-	TrayTip("通知開關", "通知已切換")
+	
+	; 使用相同的 GUI 風格顯示通知
+	ShowOSD(IsOpenTrayTip ? "通知已開啟" : "通知已關閉")
 }
 
-; 定義快捷鍵 Ctrl+Shift+F
+
 ShowOSD(text) {
     static osd := Gui()
     static isAnimating := false
@@ -52,7 +54,7 @@ ShowOSD(text) {
     
     ; 應用圓角 (Windows 11 style)
     DWMWCP_ROUND := 2  ; 圓角值
-    DWMWA_WINDOW_CORNER_PREFERENCE := 33  ; ��角屬性
+    DWMWA_WINDOW_CORNER_PREFERENCE := 33  ; 圓角屬性
     DllCall("dwmapi\DwmSetWindowAttribute", "Ptr", osd.Hwnd, "Int", DWMWA_WINDOW_CORNER_PREFERENCE, "Int*", &DWMWCP_ROUND, "Int", 4)
     
     ; 設置初始透明度
@@ -118,8 +120,7 @@ GetWindowSize(guiObj) {
         return {width: 0, height: 0}
     }
 }
-
-^+f::
+!+f::
 {
     try 
     {
@@ -129,11 +130,9 @@ GetWindowSize(guiObj) {
         ; 嘗試讀取註冊表值
         currentValue := RegRead("HKCU\" regPath, valueName)
         
-        ; 如果目前是簡體("1")，切換到繁體("0")
         if (currentValue = "0x00000001")
         {
             RegWrite("0x00000000", "REG_SZ", "HKCU\" regPath, valueName)
-            ; 切換到任務欄然後切回來
             WinActivate("ahk_class Shell_TrayWnd")
             Sleep(50)
             WinActivate("ahk_id " currentWindow)
@@ -142,11 +141,9 @@ GetWindowSize(guiObj) {
                 ShowOSD("繁體")
             }
         }
-        ; 如果目前是繁體("0")，切換到簡體("1")
         else if (currentValue = "0x00000000")
         {
             RegWrite("0x00000001", "REG_SZ", "HKCU\" regPath, valueName)
-            ; 切換到任務欄然後切回來
             WinActivate("ahk_class Shell_TrayWnd")
             Sleep(50)
             WinActivate("ahk_id " currentWindow)
@@ -158,8 +155,7 @@ GetWindowSize(guiObj) {
     }
     catch as err
     {
-        ; 如果讀取失敗，顯示錯誤訊息
-        MsgBox("錯誤輸入法註冊表項目不存在`n" err.Message, "錯誤", "Icon!")
+        MsgBox("錯誤：輸入法註冊表項目不存在`n" err.Message, "錯誤", "Icon!")
     }
     
     return
