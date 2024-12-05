@@ -52,22 +52,31 @@ ShowOSD(text) {
     ; 顯示在螢幕中上方
     osd.Show("NoActivate y100")
     
-    ; 應用圓角 (Windows 11 style)
-    DWMWCP_ROUND := 2  ; 圓角值
-    DWMWA_WINDOW_CORNER_PREFERENCE := 33  ; 圓角屬性
-    DllCall("dwmapi\DwmSetWindowAttribute", "Ptr", osd.Hwnd, "Int", DWMWA_WINDOW_CORNER_PREFERENCE, "Int*", &DWMWCP_ROUND, "Int", 4)
+    ; 獲取窗口位置和大小 - 修正語法
+    hwnd := osd.Hwnd
+    local x, y, w, h
+    WinGetPos(&x, &y, &w, &h, hwnd)
+    
+    ; 創建圓角區域
+    radius := 10  ; 圓角半徑
+    hRgn := DllCall("CreateRoundRectRgn", "Int", 0, "Int", 0
+        , "Int", w, "Int", h
+        , "Int", radius*2, "Int", radius*2)
+    
+    ; 應用圓角區域到窗口
+    DllCall("SetWindowRgn", "Ptr", hwnd, "Ptr", hRgn, "Int", true)
     
     ; 設置初始透明度
-    WinSetTransparent(255, osd)
+    WinSetTransparent(255, hwnd)
     
     ; 淡出效果
     fadeOut() {
         try {
-            if (WinExist("ahk_id " osd.Hwnd)) {
-                alpha -= 5  ; 每次減少的透明度
+            if (WinExist(hwnd)) {
+                alpha -= 5
                 if (alpha > 0) {
-                    WinSetTransparent(alpha, osd)
-                    SetTimer(fadeOut, -20)  ; 每20ms執行一次
+                    WinSetTransparent(alpha, hwnd)
+                    SetTimer(fadeOut, -20)
                 } else {
                     osd.Destroy()
                     alpha := 255  ; 重置 alpha 值為下次使用
