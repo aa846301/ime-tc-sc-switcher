@@ -1,0 +1,39 @@
+name: Build and Release AHK
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build AHK scripts
+        uses: nukdokplex/autohotkey-build@v1
+        with:
+          version: v2.0.18    # 改為 AutoHotkey v2.0.18 版本
+          x64: true           # 編譯 64 位版本
+          x86: false          # 不編譯 32 位版本
+          compression: upx    # 使用 UPX 壓縮
+          in: ""             # 從根目錄搜索 .ahk 文件
+          out: "build"       # 輸出到 build 目錄
+
+      - name: Create ZIP archive
+        run: |
+          Compress-Archive -Path build\* -DestinationPath release.zip
+        shell: pwsh
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: release.zip
+          name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
