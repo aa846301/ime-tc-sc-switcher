@@ -4,6 +4,12 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version number (e.g. v1.0.0)'
+        required: true
+        default: 'test-v0.0.1'
 
 jobs:
   build:
@@ -25,7 +31,7 @@ jobs:
       - name: Create ZIP archive
         run: |
           cd build
-          $version = "${{ github.ref_name }}"
+          $version = "${{ github.event.inputs.version || github.ref_name }}"
           $repoName = "${{ github.event.repository.name }}"
           $zipName = "${repoName}_${version}.zip"
           Compress-Archive -Path * -DestinationPath "../$zipName"
@@ -34,9 +40,9 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          files: ${{ github.event.repository.name }}_${{ github.ref_name }}.zip
-          name: Release ${{ github.ref_name }}
-          draft: false
+          files: ${{ github.event.repository.name }}_${{ github.event.inputs.version || github.ref_name }}.zip
+          name: Release ${{ github.event.inputs.version || github.ref_name }}
+          draft: ${{ github.event_name == 'workflow_dispatch' }}
           prerelease: false
           generate_release_notes: true
         env:
