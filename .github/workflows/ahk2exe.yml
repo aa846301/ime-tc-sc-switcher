@@ -24,13 +24,17 @@ jobs:
 
       - name: Create ZIP archive
         run: |
-          Compress-Archive -Path build\* -DestinationPath release.zip
+          cd build
+          $version = "${{ github.ref_name }}"
+          $repoName = "${{ github.event.repository.name }}"
+          $zipName = "${repoName}_${version}.zip"
+          Compress-Archive -Path build\* -DestinationPath "../$zipName"
         shell: pwsh
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          files: release.zip
+          files: ${{ github.event.repository.name }}_${{ github.ref_name }}.zip
           name: Release ${{ github.ref_name }}
           draft: false
           prerelease: false
