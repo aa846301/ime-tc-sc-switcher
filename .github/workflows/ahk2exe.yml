@@ -24,7 +24,7 @@ jobs:
           version: v2.0.18    # 改為 AutoHotkey v2.0.18 版本
           x64: true           # 編譯 64 位版本
           x86: false          # 不編譯 32 位版本
-          compression: upx    # 使用 UPX 壓縮
+          compression: none    
           in: ""             # 從根目錄搜索 .ahk 文件
           out: "build"       # 輸出到 build 目錄
 
