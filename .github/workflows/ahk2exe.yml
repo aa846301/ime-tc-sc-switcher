@@ -28,7 +28,7 @@ jobs:
           $version = "${{ github.ref_name }}"
           $repoName = "${{ github.event.repository.name }}"
           $zipName = "${repoName}_${version}.zip"
-          Compress-Archive -Path build\* -DestinationPath "../$zipName"
+          Compress-Archive -Path * -DestinationPath "../$zipName"
         shell: pwsh
 
       - name: Create Release
