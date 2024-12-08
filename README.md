@@ -1,5 +1,6 @@
 # ime-tc-sc-switcher
 使用ahk腳本或bat腳本，進行注音輸入法輸出簡體或繁體
+![1733573535747](https://github.com/user-attachments/assets/aa1d63ae-d569-42f3-9ac3-e475ce3c2bd0)
 
 ## 使用說明
 
