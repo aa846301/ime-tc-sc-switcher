@@ -1,0 +1,49 @@
+name: Build and Release AHK
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version number (e.g. v1.0.0)'
+        required: true
+        default: 'test-v0.0.1'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build AHK scripts
+        uses: nukdokplex/autohotkey-build@v1
+        with:
+          version: v2.0.18    # 改為 AutoHotkey v2.0.18 版本
+          x64: true           # 編譯 64 位版本
+          x86: false          # 不編譯 32 位版本
+          compression: none    
+          in: ""             # 從根目錄搜索 .ahk 文件
+          out: "build"       # 輸出到 build 目錄
+
+      - name: Create ZIP archive
+        run: |
+          cd build
+          $version = "${{ github.event.inputs.version || github.ref_name }}"
+          $repoName = "${{ github.event.repository.name }}"
+          $zipName = "${repoName}_${version}.zip"
+          Compress-Archive -Path * -DestinationPath "../$zipName"
+        shell: pwsh
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ github.event.repository.name }}_${{ github.event.inputs.version || github.ref_name }}.zip
+          name: Release ${{ github.event.inputs.version || github.ref_name }}
+          draft: ${{ github.event_name == 'workflow_dispatch' }}
+          prerelease: false
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
