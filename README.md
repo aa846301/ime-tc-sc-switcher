@@ -13,9 +13,9 @@
 下載AutoHotKey v2.0
 運行腳本
 
-### 可執行檔使用方式
-下載ChineseInputSwitcher_AHK2.0up.exe
-執行
+### 執行檔使用方式
+下載Release檔案
+
 
 ### 開機自啟動
 
