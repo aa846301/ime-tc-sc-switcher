@@ -1,0 +1,160 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:ChineseInputSwitcher"
+             xmlns:vm="using:ChineseInputSwitcher.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="550"
+             x:DataType="vm:SettingsViewModel"
+             x:Class="ChineseInputSwitcher.Views.SettingsView">
+    
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+            <!-- 語言設置 -->
+            <TextBlock Text="{x:Static local:Resources.Language}" 
+                      FontSize="16" FontWeight="Bold" 
+                      Margin="0,0,0,10"/>
+            
+            <ComboBox SelectedIndex="{Binding SelectedLanguageIndex}" Width="200" HorizontalAlignment="Left">
+                <ComboBoxItem Content="{x:Static local:Resources.FollowSystem}"/>
+                <ComboBoxItem Content="繁體中文"/>
+                <ComboBoxItem Content="简体中文"/>
+                <ComboBoxItem Content="English"/>
+                <ComboBoxItem Content="日本語"/>
+            </ComboBox>
+            
+            <!-- 功能啟用設置 -->
+            <TextBlock Text="{x:Static local:Resources.FunctionSettings}" 
+                      FontSize="16" FontWeight="Bold" 
+                      Margin="0,20,0,10"/>
+            
+            <!-- 簡繁轉換功能 (僅Windows) -->
+            <CheckBox Content="{x:Static local:Resources.EnableIMEToggleOnWindows}" 
+                     IsChecked="{Binding EnableOnWindows}"
+                     IsEnabled="{Binding IsWindowsPlatform}"/>
+            
+            <!-- 文本轉換功能 -->
+            <CheckBox Content="{x:Static local:Resources.EnableTextConversion}" 
+                     IsChecked="{Binding EnableTextConversion}"
+                     Margin="0,10,0,0"/>
+            
+            <!-- 剪貼簿轉輸入功能 -->
+            <CheckBox Content="{x:Static local:Resources.EnableClipboardToKeyboard}" 
+                     IsChecked="{Binding EnableClipboardToKeyboard}"
+                     Margin="0,10,0,0"/>
+            
+            <!-- 通知設置 -->
+            <TextBlock Text="{x:Static local:Resources.NotificationSettings}" 
+                      FontSize="16" FontWeight="Bold" 
+                      Margin="0,20,0,10"/>
+            
+            <CheckBox Content="{x:Static local:Resources.EnableNotifications}" 
+                     IsChecked="{Binding EnableNotifications}"/>
+            
+            <CheckBox Content="{x:Static local:Resources.ShowOnAllScreens}" 
+                     IsChecked="{Binding EnableMultiScreenNotifications}" 
+                     Margin="20,5,0,0" 
+                     IsEnabled="{Binding EnableNotifications}"/>
+            
+            <!-- 快捷鍵設置 -->
+            <TextBlock Text="{x:Static local:Resources.ShortcutSettings}" 
+                      FontSize="16" FontWeight="Bold" 
+                      Margin="0,20,0,10"/>
+            
+            <!-- 輸入法切換快捷鍵 -->
+            <StackPanel Orientation="Vertical" Margin="0,5,0,15" IsEnabled="{Binding IsWindowsPlatform}">
+                <TextBlock Text="{x:Static local:Resources.IMEToggle}" Margin="0,0,0,5"/>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox Content="Ctrl" IsChecked="{Binding IMEToggleCtrl}" Margin="0,0,5,0"/>
+                    <CheckBox Content="Alt" IsChecked="{Binding IMEToggleAlt}" Margin="5,0,5,0"/>
+                    <CheckBox Content="Shift" IsChecked="{Binding IMEToggleShift}" Margin="5,0,5,0"/>
+                    <CheckBox Content="Win" IsChecked="{Binding IMEToggleWin}" Margin="5,0,5,0"/>
+                    <ComboBox SelectedIndex="{Binding IMEToggleKeyIndex}" Width="80" Margin="5,0,0,0">
+                        <ComboBoxItem Content="A"/>
+                        <ComboBoxItem Content="B"/>
+                        <ComboBoxItem Content="C"/>
+                        <ComboBoxItem Content="D"/>
+                        <ComboBoxItem Content="E"/>
+                        <ComboBoxItem Content="F"/>
+                        <!-- 其他按鍵... -->
+                    </ComboBox>
+                    <Button Content="{x:Static local:Resources.Reset}" 
+                           Command="{Binding ResetIMEToggleCommand}" 
+                           Margin="10,0,0,0"/>
+                </StackPanel>
+                <TextBlock Text="{Binding IMEToggleShortcut}" Margin="0,5,0,0" Foreground="Gray"/>
+            </StackPanel>
+            
+            <!-- 通知開關快捷鍵 -->
+            <StackPanel Orientation="Vertical" Margin="0,5,0,15">
+                <TextBlock Text="{x:Static local:Resources.NotificationToggle}" Margin="0,0,0,5"/>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox Content="Ctrl" IsChecked="{Binding NotificationToggleCtrl}" Margin="0,0,5,0"/>
+                    <CheckBox Content="Alt" IsChecked="{Binding NotificationToggleAlt}" Margin="5,0,5,0"/>
+                    <CheckBox Content="Shift" IsChecked="{Binding NotificationToggleShift}" Margin="5,0,5,0"/>
+                    <CheckBox Content="Win" IsChecked="{Binding NotificationToggleWin}" Margin="5,0,5,0"/>
+                    <ComboBox SelectedIndex="{Binding NotificationToggleKeyIndex}" Width="80" Margin="5,0,0,0">
+                        <ComboBoxItem Content="A"/>
+                        <ComboBoxItem Content="B"/>
+                        <!-- 其他按鍵... -->
+                        <ComboBoxItem Content="X"/>
+                        <!-- 其他按鍵... -->
+                    </ComboBox>
+                    <Button Content="{x:Static local:Resources.Reset}" 
+                           Command="{Binding ResetNotificationToggleCommand}" 
+                           Margin="10,0,0,0"/>
+                </StackPanel>
+                <TextBlock Text="{Binding NotificationToggleShortcut}" Margin="0,5,0,0" Foreground="Gray"/>
+            </StackPanel>
+            
+            <!-- SQL格式轉換快捷鍵 -->
+            <StackPanel Orientation="Vertical" Margin="0,5,0,15">
+                <TextBlock Text="{x:Static local:Resources.SQLFormat}" Margin="0,0,0,5"/>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox Content="Ctrl" IsChecked="{Binding TextToSqlFormatCtrl}" Margin="0,0,5,0"/>
+                    <CheckBox Content="Alt" IsChecked="{Binding TextToSqlFormatAlt}" Margin="5,0,5,0"/>
+                    <CheckBox Content="Shift" IsChecked="{Binding TextToSqlFormatShift}" Margin="5,0,5,0"/>
+                    <CheckBox Content="Win" IsChecked="{Binding TextToSqlFormatWin}" Margin="5,0,5,0"/>
+                    <ComboBox SelectedIndex="{Binding TextToSqlFormatKeyIndex}" Width="80" Margin="5,0,0,0">
+                        <ComboBoxItem Content="A"/>
+                        <ComboBoxItem Content="B"/>
+                        <!-- 其他按鍵... -->
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+            
+            <!-- 鍵盤輸入快捷鍵 -->
+            <StackPanel Orientation="Vertical" Margin="0,5,0,15">
+                <TextBlock Text="{x:Static local:Resources.KeyboardInput}" Margin="0,0,0,5"/>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox Content="Ctrl" IsChecked="{Binding TextToKeyboardInputCtrl}" Margin="0,0,5,0"/>
+                    <CheckBox Content="Alt" IsChecked="{Binding TextToKeyboardInputAlt}" Margin="5,0,5,0"/>
+                    <CheckBox Content="Shift" IsChecked="{Binding TextToKeyboardInputShift}" Margin="5,0,5,0"/>
+                    <CheckBox Content="Win" IsChecked="{Binding TextToKeyboardInputWin}" Margin="5,0,5,0"/>
+                    <ComboBox SelectedIndex="{Binding TextToKeyboardInputKeyIndex}" Width="80" Margin="5,0,0,0">
+                        <ComboBoxItem Content="A"/>
+                        <ComboBoxItem Content="B"/>
+                        <!-- 其他按鍵... -->
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+            
+            <!-- 重置所有快捷鍵按鈕 -->
+            <Button Content="{x:Static local:Resources.ResetAllShortcuts}" 
+                   Command="{Binding ResetShortcutsCommand}" 
+                   HorizontalAlignment="Left" 
+                   Margin="0,10,0,0"/>
+            
+            <!-- 操作按鈕區 -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,30,0,0">
+                <Button Content="{x:Static local:Resources.Save}" 
+                       Command="{Binding SaveCommand}" 
+                       Margin="0,0,10,0" 
+                       Width="80"/>
+                <Button Content="{x:Static local:Resources.Cancel}" 
+                       Command="{Binding CancelCommand}" 
+                       Width="80"/>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl> 

@@ -1,0 +1,20 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:ChineseInputSwitcher"
+             xmlns:vm="using:ChineseInputSwitcher.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300"
+             x:DataType="vm:SettingsViewModel"
+             x:Class="ChineseInputSwitcher.Views.AboutView">
+    <StackPanel Spacing="10" Margin="20">
+        <TextBlock Text="{x:Static local:Resources.About}" FontWeight="Bold" FontSize="20" Margin="0,0,0,10"/>
+        
+        <TextBlock Text="{x:Static local:Resources.AppDescription}" TextWrapping="Wrap" Margin="0,0,0,10"/>
+        
+        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+            <TextBlock Text="{x:Static local:Resources.Version}" FontWeight="Bold" Margin="0,0,5,0"/>
+            <TextBlock Text="1.0.0"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl> 

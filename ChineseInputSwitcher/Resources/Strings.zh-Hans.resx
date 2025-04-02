@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  
+  <data name="AppTitle" xml:space="preserve">
+    <value>中文输入法切换器</value>
+  </data>
+  <data name="CurrentInputState" xml:space="preserve">
+    <value>当前输入法状态：</value>
+  </data>
+  <data name="SimplifiedChinese" xml:space="preserve">
+    <value>简体</value>
+  </data>
+  <data name="TraditionalChinese" xml:space="preserve">
+    <value>繁体</value>
+  </data>
+  <data name="NotAvailable" xml:space="preserve">
+    <value>不可用</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>未知</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="NotSupportedMacOS" xml:space="preserve">
+    <value>不适用于 macOS</value>
+  </data>
+  <data name="NotSupportedLinux" xml:space="preserve">
+    <value>不适用于 Linux</value>
+  </data>
+  <data name="TextConversionTool" xml:space="preserve">
+    <value>文本转换工具</value>
+  </data>
+  <data name="InputOrPasteText" xml:space="preserve">
+    <value>输入或粘贴文本：</value>
+  </data>
+  <data name="SQLFormatConversion" xml:space="preserve">
+    <value>SQL格式转换</value>
+  </data>
+  <data name="KeyboardInputSimulation" xml:space="preserve">
+    <value>模拟键盘输入</value>
+  </data>
+  <data name="Shortcuts" xml:space="preserve">
+    <value>快捷键</value>
+  </data>
+  <data name="IMEToggleShortcut" xml:space="preserve">
+    <value>输入法切换: Alt+Shift+F (仅Windows)</value>
+  </data>
+  <data name="NotificationToggleShortcut" xml:space="preserve">
+    <value>通知开关: Ctrl+Alt+Shift+X</value>
+  </data>
+  <data name="SQLFormatShortcut" xml:space="preserve">
+    <value>SQL格式转换: Ctrl+Alt+S</value>
+  </data>
+  <data name="KeyboardInputShortcut" xml:space="preserve">
+    <value>模拟键盘输入: Ctrl+Alt+K</value>
+  </data>
+  <data name="ToggleIME" xml:space="preserve">
+    <value>切换输入法</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="WindowsOnlyFeature" xml:space="preserve">
+    <value>此功能仅适用于 Windows 平台</value>
+  </data>
+  <data name="IMEToggleFailed" xml:space="preserve">
+    <value>切换输入法失败</value>
+  </data>
+  <data name="KeyboardInputComplete" xml:space="preserve">
+    <value>已模拟键盘输入</value>
+  </data>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>欢迎使用中文输入法切换器</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>输入法切换器设置</value>
+  </data>
+  <data name="NotificationSettings" xml:space="preserve">
+    <value>通知设置</value>
+  </data>
+  <data name="EnableNotifications" xml:space="preserve">
+    <value>启用通知</value>
+  </data>
+  <data name="ShowOnAllScreens" xml:space="preserve">
+    <value>在所有屏幕上显示通知</value>
+  </data>
+  <data name="ShortcutSettings" xml:space="preserve">
+    <value>快捷键设置</value>
+  </data>
+  <data name="IMEToggle" xml:space="preserve">
+    <value>输入法切换:</value>
+  </data>
+  <data name="NotificationToggle" xml:space="preserve">
+    <value>通知开关:</value>
+  </data>
+  <data name="SQLFormat" xml:space="preserve">
+    <value>SQL格式转换:</value>
+  </data>
+  <data name="KeyboardInput" xml:space="preserve">
+    <value>键盘模拟输入:</value>
+  </data>
+  <data name="PlatformSettings" xml:space="preserve">
+    <value>平台设置</value>
+  </data>
+  <data name="EnableOnWindows" xml:space="preserve">
+    <value>在 Windows 上启用</value>
+  </data>
+  <data name="EnableOnMacOS" xml:space="preserve">
+    <value>在 macOS 上启用（仅文本功能）</value>
+  </data>
+  <data name="EnableOnLinux" xml:space="preserve">
+    <value>在 Linux 上启用（仅文本功能）</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="FollowSystem" xml:space="preserve">
+    <value>跟随系统</value>
+  </data>
+  <data name="NotificationEnabled" xml:space="preserve">
+    <value>通知已开启</value>
+  </data>
+  <data name="NotificationDisabled" xml:space="preserve">
+    <value>通知已关闭</value>
+  </data>
+  <data name="SQLFormatComplete" xml:space="preserve">
+    <value>已转换为SQL格式</value>
+  </data>
+  <data name="ShowMainWindow" xml:space="preserve">
+    <value>显示主窗口</value>
+  </data>
+  <data name="DisableNotifications" xml:space="preserve">
+    <value>禁用通知</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>退出</value>
+  </data>
+</root> 

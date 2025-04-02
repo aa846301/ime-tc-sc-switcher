@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  
+  <data name="AppTitle" xml:space="preserve">
+    <value>Chinese IME Switcher</value>
+  </data>
+  <data name="CurrentInputState" xml:space="preserve">
+    <value>Current Input Method State: </value>
+  </data>
+  <data name="SimplifiedChinese" xml:space="preserve">
+    <value>Simplified</value>
+  </data>
+  <data name="TraditionalChinese" xml:space="preserve">
+    <value>Traditional</value>
+  </data>
+  <data name="NotAvailable" xml:space="preserve">
+    <value>Not Available</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>Unknown</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="NotSupportedMacOS" xml:space="preserve">
+    <value>Not supported on macOS</value>
+  </data>
+  <data name="NotSupportedLinux" xml:space="preserve">
+    <value>Not supported on Linux</value>
+  </data>
+  <data name="TextConversionTool" xml:space="preserve">
+    <value>Text Conversion Tool</value>
+  </data>
+  <data name="InputOrPasteText" xml:space="preserve">
+    <value>Input or paste text:</value>
+  </data>
+  <data name="SQLFormatConversion" xml:space="preserve">
+    <value>SQL Format Conversion</value>
+  </data>
+  <data name="KeyboardInputSimulation" xml:space="preserve">
+    <value>Keyboard Input Simulation</value>
+  </data>
+  <data name="Shortcuts" xml:space="preserve">
+    <value>Shortcuts</value>
+  </data>
+  <data name="IMEToggleShortcut" xml:space="preserve">
+    <value>IME Toggle: Alt+Shift+F (Windows Only)</value>
+  </data>
+  <data name="NotificationToggleShortcut" xml:space="preserve">
+    <value>Notification Toggle: Ctrl+Alt+Shift+X</value>
+  </data>
+  <data name="SQLFormatShortcut" xml:space="preserve">
+    <value>SQL Format: Ctrl+Alt+S</value>
+  </data>
+  <data name="KeyboardInputShortcut" xml:space="preserve">
+    <value>Keyboard Input: Ctrl+Alt+K</value>
+  </data>
+  <data name="ToggleIME" xml:space="preserve">
+    <value>Toggle IME</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="WindowsOnlyFeature" xml:space="preserve">
+    <value>This feature is only available on Windows</value>
+  </data>
+  <data name="IMEToggleFailed" xml:space="preserve">
+    <value>Failed to toggle input method</value>
+  </data>
+  <data name="KeyboardInputComplete" xml:space="preserve">
+    <value>Keyboard input simulation completed</value>
+  </data>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>Welcome to Chinese IME Switcher</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>IME Switcher Settings</value>
+  </data>
+  <data name="NotificationSettings" xml:space="preserve">
+    <value>Notification Settings</value>
+  </data>
+  <data name="EnableNotifications" xml:space="preserve">
+    <value>Enable Notifications</value>
+  </data>
+  <data name="ShowOnAllScreens" xml:space="preserve">
+    <value>Show on all screens</value>
+  </data>
+  <data name="ShortcutSettings" xml:space="preserve">
+    <value>Shortcut Settings</value>
+  </data>
+  <data name="IMEToggle" xml:space="preserve">
+    <value>IME Toggle:</value>
+  </data>
+  <data name="NotificationToggle" xml:space="preserve">
+    <value>Notification Toggle:</value>
+  </data>
+  <data name="SQLFormat" xml:space="preserve">
+    <value>SQL Format:</value>
+  </data>
+  <data name="KeyboardInput" xml:space="preserve">
+    <value>Keyboard Input:</value>
+  </data>
+  <data name="PlatformSettings" xml:space="preserve">
+    <value>Platform Settings</value>
+  </data>
+  <data name="EnableOnWindows" xml:space="preserve">
+    <value>Enable on Windows</value>
+  </data>
+  <data name="EnableOnMacOS" xml:space="preserve">
+    <value>Enable on macOS (text features only)</value>
+  </data>
+  <data name="EnableOnLinux" xml:space="preserve">
+    <value>Enable on Linux (text features only)</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="FollowSystem" xml:space="preserve">
+    <value>Follow System</value>
+  </data>
+  <data name="NotificationEnabled" xml:space="preserve">
+    <value>Notifications enabled</value>
+  </data>
+  <data name="NotificationDisabled" xml:space="preserve">
+    <value>Notifications disabled</value>
+  </data>
+  <data name="SQLFormatComplete" xml:space="preserve">
+    <value>Converted to SQL format</value>
+  </data>
+  <data name="LanguageChangeRequiresRestart" xml:space="preserve">
+    <value>Language change will fully apply after restart</value>
+  </data>
+  <data name="FunctionSettings" xml:space="preserve">
+  <value>Function Settings</value>
+</data>
+<data name="EnableIMEToggleOnWindows" xml:space="preserve">
+  <value>Enable IME Toggle (Windows Only)</value>
+</data>
+<data name="EnableTextConversion" xml:space="preserve">
+  <value>Enable Text Conversion</value>
+</data>
+<data name="EnableClipboardToKeyboard" xml:space="preserve">
+  <value>Enable Clipboard to Keyboard Input</value>
+</data>
+<data name="ResetAllShortcuts" xml:space="preserve">
+  <value>Reset All Shortcuts</value>
+</data> 
+</root> 

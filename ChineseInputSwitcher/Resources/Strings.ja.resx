@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  
+  <data name="AppTitle" xml:space="preserve">
+    <value>中国語入力切替ツール</value>
+  </data>
+  <data name="CurrentInputState" xml:space="preserve">
+    <value>現在の入力方式状態：</value>
+  </data>
+  <data name="SimplifiedChinese" xml:space="preserve">
+    <value>簡体字</value>
+  </data>
+  <data name="TraditionalChinese" xml:space="preserve">
+    <value>繁体字</value>
+  </data>
+  <data name="NotAvailable" xml:space="preserve">
+    <value>利用不可</value>
+  </data>
+  <data name="Unknown" xml:space="preserve">
+    <value>不明</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>エラー</value>
+  </data>
+  <data name="NotSupportedMacOS" xml:space="preserve">
+    <value>macOSではサポートされていません</value>
+  </data>
+  <data name="NotSupportedLinux" xml:space="preserve">
+    <value>Linuxではサポートされていません</value>
+  </data>
+  <data name="TextConversionTool" xml:space="preserve">
+    <value>テキスト変換ツール</value>
+  </data>
+  <data name="InputOrPasteText" xml:space="preserve">
+    <value>テキストを入力または貼り付け：</value>
+  </data>
+  <data name="SQLFormatConversion" xml:space="preserve">
+    <value>SQL形式変換</value>
+  </data>
+  <data name="KeyboardInputSimulation" xml:space="preserve">
+    <value>キーボード入力シミュレーション</value>
+  </data>
+  <data name="Shortcuts" xml:space="preserve">
+    <value>ショートカット</value>
+  </data>
+  <data name="IMEToggleShortcut" xml:space="preserve">
+    <value>入力方式切替: Alt+Shift+F (Windowsのみ)</value>
+  </data>
+  <data name="NotificationToggleShortcut" xml:space="preserve">
+    <value>通知切替: Ctrl+Alt+Shift+X</value>
+  </data>
+  <data name="SQLFormatShortcut" xml:space="preserve">
+    <value>SQL形式: Ctrl+Alt+S</value>
+  </data>
+  <data name="KeyboardInputShortcut" xml:space="preserve">
+    <value>キーボード入力: Ctrl+Alt+K</value>
+  </data>
+  <data name="ToggleIME" xml:space="preserve">
+    <value>入力方式切替</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="WindowsOnlyFeature" xml:space="preserve">
+    <value>この機能はWindowsのみで利用可能です</value>
+  </data>
+  <data name="IMEToggleFailed" xml:space="preserve">
+    <value>入力方式の切替に失敗しました</value>
+  </data>
+  <data name="KeyboardInputComplete" xml:space="preserve">
+    <value>キーボード入力シミュレーション完了</value>
+  </data>
+  <data name="WelcomeMessage" xml:space="preserve">
+    <value>中国語入力切替ツールへようこそ</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>入力切替ツール設定</value>
+  </data>
+  <data name="NotificationSettings" xml:space="preserve">
+    <value>通知設定</value>
+  </data>
+  <data name="ShowOnAllScreens" xml:space="preserve">
+    <value>すべての画面に表示</value>
+  </data>
+  <data name="ShortcutSettings" xml:space="preserve">
+    <value>ショートカット設定</value>
+  </data>
+  <data name="IMEToggle" xml:space="preserve">
+    <value>入力方式切替:</value>
+  </data>
+  <data name="NotificationToggle" xml:space="preserve">
+    <value>通知切替:</value>
+  </data>
+  <data name="SQLFormat" xml:space="preserve">
+    <value>SQL形式:</value>
+  </data>
+  <data name="KeyboardInput" xml:space="preserve">
+    <value>キーボード入力:</value>
+  </data>
+  <data name="PlatformSettings" xml:space="preserve">
+    <value>プラットフォーム設定</value>
+  </data>
+  <data name="EnableOnWindows" xml:space="preserve">
+    <value>Windowsで有効化</value>
+  </data>
+  <data name="EnableOnMacOS" xml:space="preserve">
+    <value>macOSで有効化（テキスト機能のみ）</value>
+  </data>
+  <data name="EnableOnLinux" xml:space="preserve">
+    <value>Linuxで有効化（テキスト機能のみ）</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>言語</value>
+  </data>
+  <data name="FollowSystem" xml:space="preserve">
+    <value>システム設定に従う</value>
+  </data>
+  <data name="NotificationEnabled" xml:space="preserve">
+    <value>通知が有効になりました</value>
+  </data>
+  <data name="NotificationDisabled" xml:space="preserve">
+    <value>通知が無効になりました</value>
+  </data>
+  <data name="SQLFormatComplete" xml:space="preserve">
+    <value>SQLフォーマットに変換しました</value>
+  </data>
+  <data name="ShowMainWindow" xml:space="preserve">
+    <value>メインウィンドウを表示</value>
+  </data>
+  <data name="DisableNotifications" xml:space="preserve">
+    <value>通知を無効にする</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>終了</value>
+  </data>
+</root> 

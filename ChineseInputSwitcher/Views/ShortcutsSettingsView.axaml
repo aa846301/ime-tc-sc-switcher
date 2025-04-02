@@ -1,0 +1,31 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:ChineseInputSwitcher"
+             xmlns:vm="using:ChineseInputSwitcher.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300"
+             x:DataType="vm:SettingsViewModel"
+             x:Class="ChineseInputSwitcher.Views.ShortcutsSettingsView">
+    <StackPanel Spacing="10" Margin="10">
+        <TextBlock Text="{x:Static local:Resources.ConfigureShortcuts}" FontWeight="Bold" Margin="0,0,0,10"/>
+        
+        <!-- 快捷键设置 -->
+        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto" Margin="0,0,0,10">
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static local:Resources.IMEToggle}" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding KeyOptions}" SelectedIndex="{Binding ToggleInputMethodKeyIndex}"/>
+            
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static local:Resources.NotificationToggle}" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding KeyOptions}" SelectedIndex="{Binding ToggleNotificationKeyIndex}"/>
+            
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="{x:Static local:Resources.SQLFormat}" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <ComboBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding KeyOptions}" SelectedIndex="{Binding TextToSqlFormatKeyIndex}"/>
+            
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="{x:Static local:Resources.KeyboardInput}" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding KeyOptions}" SelectedIndex="{Binding TextToKeyboardInputKeyIndex}"/>
+        </Grid>
+        
+        <!-- 重置按钮 -->
+        <Button Content="{x:Static local:Resources.Reset}" HorizontalAlignment="Left" Command="{Binding ResetShortcutsCommand}"/>
+    </StackPanel>
+</UserControl> 
