@@ -10,22 +10,34 @@
     <StackPanel Spacing="10" Margin="10">
         <TextBlock Text="{x:Static local:Resources.ConfigureShortcuts}" FontWeight="Bold" Margin="0,0,0,10"/>
         
-        <!-- 快捷键设置 -->
+        <!-- 快捷鍵設置 -->
         <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto" Margin="0,0,0,10">
             <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static local:Resources.IMEToggle}" VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding KeyOptions}" SelectedIndex="{Binding ToggleInputMethodKeyIndex}"/>
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                <TextBox Text="{Binding IMEToggleShortcut}" IsReadOnly="False" Name="IMEToggleTextBox" KeyDown="ShortcutTextBox_KeyDown" Width="150"/>
+                <Button Content="{x:Static local:Resources.Reset}" Command="{Binding ResetIMEToggleCommand}" Margin="10,0,0,0"/>
+            </StackPanel>
             
             <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static local:Resources.NotificationToggle}" VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding KeyOptions}" SelectedIndex="{Binding ToggleNotificationKeyIndex}"/>
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                <TextBox Text="{Binding NotificationToggleShortcut}" IsReadOnly="False" Name="NotificationToggleTextBox" KeyDown="ShortcutTextBox_KeyDown" Width="150"/>
+                <Button Content="{x:Static local:Resources.Reset}" Command="{Binding ResetNotificationToggleCommand}" Margin="10,0,0,0"/>
+            </StackPanel>
             
             <TextBlock Grid.Row="2" Grid.Column="0" Text="{x:Static local:Resources.SQLFormat}" VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <ComboBox Grid.Row="2" Grid.Column="1" ItemsSource="{Binding KeyOptions}" SelectedIndex="{Binding TextToSqlFormatKeyIndex}"/>
+            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                <TextBox Text="{Binding TextToSqlFormatShortcut}" IsReadOnly="False" Name="TextToSqlFormatTextBox" KeyDown="ShortcutTextBox_KeyDown" Width="150"/>
+                <Button Content="{x:Static local:Resources.Reset}" Command="{Binding ResetTextToSqlFormatCommand}" Margin="10,0,0,0"/>
+            </StackPanel>
             
             <TextBlock Grid.Row="3" Grid.Column="0" Text="{x:Static local:Resources.KeyboardInput}" VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding KeyOptions}" SelectedIndex="{Binding TextToKeyboardInputKeyIndex}"/>
+            <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                <TextBox Text="{Binding TextToKeyboardInputShortcut}" IsReadOnly="False" Name="TextToKeyboardInputTextBox" KeyDown="ShortcutTextBox_KeyDown" Width="150"/>
+                <Button Content="{x:Static local:Resources.Reset}" Command="{Binding ResetTextToKeyboardInputCommand}" Margin="10,0,0,0"/>
+            </StackPanel>
         </Grid>
         
-        <!-- 重置按钮 -->
+        <!-- 重置按鈕 -->
         <Button Content="{x:Static local:Resources.Reset}" HorizontalAlignment="Left" Command="{Binding ResetShortcutsCommand}"/>
     </StackPanel>
 </UserControl> 

@@ -57,6 +57,11 @@ namespace ChineseInputSwitcher.Models
         public bool EnableOnMacOS { get; set; } = false;
         public bool EnableOnLinux { get; set; } = false;
 
+        // 平台特定IME切换设置
+        public bool EnableIMEToggleOnWindows { get; set; } = true;
+        public bool EnableIMEToggleOnMacOS { get; set; } = false;
+        public bool EnableIMEToggleOnLinux { get; set; } = false;
+
         // 在 AppSettings 類中添加語言設置字段
         public string Language { get; set; } = "system"; // 默認使用系統語言
 
@@ -121,6 +126,9 @@ namespace ChineseInputSwitcher.Models
                 EnableOnWindows = this.EnableOnWindows,
                 EnableOnMacOS = this.EnableOnMacOS,
                 EnableOnLinux = this.EnableOnLinux,
+                EnableIMEToggleOnWindows = this.EnableIMEToggleOnWindows,
+                EnableIMEToggleOnMacOS = this.EnableIMEToggleOnMacOS,
+                EnableIMEToggleOnLinux = this.EnableIMEToggleOnLinux,
                 ToggleInputMethod = this.ToggleInputMethod,
                 ToggleNotification = this.ToggleNotification,
                 TextToSqlFormat = this.TextToSqlFormat,
@@ -139,6 +147,9 @@ namespace ChineseInputSwitcher.Models
             this.EnableOnWindows = other.EnableOnWindows;
             this.EnableOnMacOS = other.EnableOnMacOS;
             this.EnableOnLinux = other.EnableOnLinux;
+            this.EnableIMEToggleOnWindows = other.EnableIMEToggleOnWindows;
+            this.EnableIMEToggleOnMacOS = other.EnableIMEToggleOnMacOS;
+            this.EnableIMEToggleOnLinux = other.EnableIMEToggleOnLinux;
             this.ToggleInputMethod = other.ToggleInputMethod;
             this.ToggleNotification = other.ToggleNotification;
             this.TextToSqlFormat = other.TextToSqlFormat;

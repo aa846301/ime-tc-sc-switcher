@@ -61,23 +61,11 @@
                       FontSize="16" FontWeight="Bold" 
                       Margin="0,20,0,10"/>
             
-            <!-- 輸入法切換快捷鍵 -->
+            <!-- IME切換快捷鍵 -->
             <StackPanel Orientation="Vertical" Margin="0,5,0,15" IsEnabled="{Binding IsWindowsPlatform}">
                 <TextBlock Text="{x:Static local:Resources.IMEToggle}" Margin="0,0,0,5"/>
                 <StackPanel Orientation="Horizontal">
-                    <CheckBox Content="Ctrl" IsChecked="{Binding IMEToggleCtrl}" Margin="0,0,5,0"/>
-                    <CheckBox Content="Alt" IsChecked="{Binding IMEToggleAlt}" Margin="5,0,5,0"/>
-                    <CheckBox Content="Shift" IsChecked="{Binding IMEToggleShift}" Margin="5,0,5,0"/>
-                    <CheckBox Content="Win" IsChecked="{Binding IMEToggleWin}" Margin="5,0,5,0"/>
-                    <ComboBox SelectedIndex="{Binding IMEToggleKeyIndex}" Width="80" Margin="5,0,0,0">
-                        <ComboBoxItem Content="A"/>
-                        <ComboBoxItem Content="B"/>
-                        <ComboBoxItem Content="C"/>
-                        <ComboBoxItem Content="D"/>
-                        <ComboBoxItem Content="E"/>
-                        <ComboBoxItem Content="F"/>
-                        <!-- 其他按鍵... -->
-                    </ComboBox>
+                    <TextBox Text="{Binding IMEToggleShortcut}" Width="150" IsReadOnly="False" KeyDown="ShortcutTextBox_KeyDown" Name="IMEToggleTextBox"/>
                     <Button Content="{x:Static local:Resources.Reset}" 
                            Command="{Binding ResetIMEToggleCommand}" 
                            Margin="10,0,0,0"/>
@@ -89,37 +77,22 @@
             <StackPanel Orientation="Vertical" Margin="0,5,0,15">
                 <TextBlock Text="{x:Static local:Resources.NotificationToggle}" Margin="0,0,0,5"/>
                 <StackPanel Orientation="Horizontal">
-                    <CheckBox Content="Ctrl" IsChecked="{Binding NotificationToggleCtrl}" Margin="0,0,5,0"/>
-                    <CheckBox Content="Alt" IsChecked="{Binding NotificationToggleAlt}" Margin="5,0,5,0"/>
-                    <CheckBox Content="Shift" IsChecked="{Binding NotificationToggleShift}" Margin="5,0,5,0"/>
-                    <CheckBox Content="Win" IsChecked="{Binding NotificationToggleWin}" Margin="5,0,5,0"/>
-                    <ComboBox SelectedIndex="{Binding NotificationToggleKeyIndex}" Width="80" Margin="5,0,0,0">
-                        <ComboBoxItem Content="A"/>
-                        <ComboBoxItem Content="B"/>
-                        <!-- 其他按鍵... -->
-                        <ComboBoxItem Content="X"/>
-                        <!-- 其他按鍵... -->
-                    </ComboBox>
+                    <TextBox Text="{Binding NotificationToggleShortcut}" Width="150" IsReadOnly="False" KeyDown="ShortcutTextBox_KeyDown" Name="NotificationToggleTextBox"/>
                     <Button Content="{x:Static local:Resources.Reset}" 
                            Command="{Binding ResetNotificationToggleCommand}" 
                            Margin="10,0,0,0"/>
                 </StackPanel>
                 <TextBlock Text="{Binding NotificationToggleShortcut}" Margin="0,5,0,0" Foreground="Gray"/>
             </StackPanel>
-            
+
             <!-- SQL格式轉換快捷鍵 -->
             <StackPanel Orientation="Vertical" Margin="0,5,0,15">
                 <TextBlock Text="{x:Static local:Resources.SQLFormat}" Margin="0,0,0,5"/>
                 <StackPanel Orientation="Horizontal">
-                    <CheckBox Content="Ctrl" IsChecked="{Binding TextToSqlFormatCtrl}" Margin="0,0,5,0"/>
-                    <CheckBox Content="Alt" IsChecked="{Binding TextToSqlFormatAlt}" Margin="5,0,5,0"/>
-                    <CheckBox Content="Shift" IsChecked="{Binding TextToSqlFormatShift}" Margin="5,0,5,0"/>
-                    <CheckBox Content="Win" IsChecked="{Binding TextToSqlFormatWin}" Margin="5,0,5,0"/>
-                    <ComboBox SelectedIndex="{Binding TextToSqlFormatKeyIndex}" Width="80" Margin="5,0,0,0">
-                        <ComboBoxItem Content="A"/>
-                        <ComboBoxItem Content="B"/>
-                        <!-- 其他按鍵... -->
-                    </ComboBox>
+                    <TextBox Text="{Binding TextToSqlFormatShortcut}" Width="150" IsReadOnly="False" KeyDown="ShortcutTextBox_KeyDown" Name="TextToSqlFormatTextBox"/>
+                    <Button Content="{x:Static local:Resources.Reset}" 
+                           Command="{Binding ResetTextToSqlFormatCommand}" 
+                           Margin="10,0,0,0"/>
                 </StackPanel>
             </StackPanel>
             
@@ -127,15 +100,10 @@
             <StackPanel Orientation="Vertical" Margin="0,5,0,15">
                 <TextBlock Text="{x:Static local:Resources.KeyboardInput}" Margin="0,0,0,5"/>
                 <StackPanel Orientation="Horizontal">
-                    <CheckBox Content="Ctrl" IsChecked="{Binding TextToKeyboardInputCtrl}" Margin="0,0,5,0"/>
-                    <CheckBox Content="Alt" IsChecked="{Binding TextToKeyboardInputAlt}" Margin="5,0,5,0"/>
-                    <CheckBox Content="Shift" IsChecked="{Binding TextToKeyboardInputShift}" Margin="5,0,5,0"/>
-                    <CheckBox Content="Win" IsChecked="{Binding TextToKeyboardInputWin}" Margin="5,0,5,0"/>
-                    <ComboBox SelectedIndex="{Binding TextToKeyboardInputKeyIndex}" Width="80" Margin="5,0,0,0">
-                        <ComboBoxItem Content="A"/>
-                        <ComboBoxItem Content="B"/>
-                        <!-- 其他按鍵... -->
-                    </ComboBox>
+                    <TextBox Text="{Binding TextToKeyboardInputShortcut}" Width="150" IsReadOnly="False" KeyDown="ShortcutTextBox_KeyDown" Name="TextToKeyboardInputTextBox"/>
+                    <Button Content="{x:Static local:Resources.Reset}" 
+                           Command="{Binding ResetTextToKeyboardInputCommand}" 
+                           Margin="10,0,0,0"/>
                 </StackPanel>
             </StackPanel>
             

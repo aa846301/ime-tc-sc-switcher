@@ -104,14 +104,11 @@ namespace ChineseInputSwitcher.ViewModels
             _textTransformService = textTransformService;
             _localizationService = localizationService;
             
-            // 使用 Dispatcher 初始化命令
-            Dispatcher.UIThread.Post(() => {
-                // 初始化命令
-                ToggleInputMethodCommand = ReactiveCommand.CreateFromTask(ToggleInputMethod);
-                OpenSettingsCommand = ReactiveCommand.Create(OpenSettings);
-                ConvertToSqlFormatCommand = ReactiveCommand.CreateFromTask(ConvertToSqlFormat);
-                SimulateKeyboardInputCommand = ReactiveCommand.CreateFromTask(SimulateKeyboardInput);
-            });
+            // 初始化命令
+            ToggleInputMethodCommand = new RelayCommand(_ => ToggleInputMethodWithLogging());
+            OpenSettingsCommand = new RelayCommand(_ => OpenSettings());
+            ConvertToSqlFormatCommand = new RelayCommand(_ => ConvertToSqlFormatWithLogging());
+            SimulateKeyboardInputCommand = new RelayCommand(_ => SimulateKeyboardInputWithLogging());
             
             // 初始化資源字符串
             UpdateLocalizedResources();
@@ -120,6 +117,50 @@ namespace ChineseInputSwitcher.ViewModels
             App.LanguageChanged += OnLanguageChanged;
             
             // 初始化其他設置...
+        }
+        
+        private async Task ToggleInputMethodWithLogging()
+        {
+            Console.WriteLine("觸發輸入法切換快捷鍵");
+            await ToggleInputMethod();
+        }
+        
+        private async Task ConvertToSqlFormatWithLogging()
+        {
+            Console.WriteLine("觸發SQL格式化快捷鍵");
+            await ConvertToSqlFormat();
+        }
+        
+        private async Task SimulateKeyboardInputWithLogging()
+        {
+            Console.WriteLine("觸發鍵盤輸入模擬快捷鍵");
+            await SimulateKeyboardInput();
+        }
+        
+        private class RelayCommand : ICommand
+        {
+            private readonly Action<object> _execute;
+            
+            public RelayCommand(Action<object> execute)
+            {
+                _execute = execute;
+            }
+            
+            public bool CanExecute(object? parameter) => true;
+            
+            public void Execute(object? parameter)
+            {
+                try
+                {
+                    _execute(parameter);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"命令執行出錯: {ex.Message}");
+                }
+            }
+            
+            public event EventHandler? CanExecuteChanged;
         }
 
         private async Task UpdateInputMethodState()
